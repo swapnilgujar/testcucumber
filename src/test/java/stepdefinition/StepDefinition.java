@@ -45,14 +45,5 @@ public class StepDefinition {
 		System.out.println("Page title is----->"+driver.getTitle());
 		Assert.assertEquals(driver.getTitle(), "cypress tutorial - Google Search");
 	}
-
 }
-/*
- * driver.get("https://www.google.com");
-	  srchBox = driver.findElement(By.name("q"));
-	  srchBox.sendKeys("cypress tutorial");
-	  srchBox.sendKeys(Keys.ENTER);
-	  System.out.println("Page title is----->"+driver.getTitle());
-	  Assert.assertEquals(driver.getTitle(), "cypress tutorial - Google Search");
- * */
  
