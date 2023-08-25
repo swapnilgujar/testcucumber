@@ -1,3 +1,4 @@
+@PhaseOne
 Feature: Contact Managment
 
 @SmokeTest @RegressionTest

@@ -1,6 +1,7 @@
+@PhaseTwo
 Feature: Deals Managment
 
-@SmokeTest @RegressionTest
+@SmokeTest
 Scenario:  Create a Deal
 Given User is on CRM home page
 When User logs in with valid creadintials
@@ -11,6 +12,7 @@ Scenario:  Update a Deal
 Given User is on CRM home page
 When User logs in with valid creadintials
 Then User update a deal
+
 
 Scenario:  Delete a contact
 Given User is on CRM home page
