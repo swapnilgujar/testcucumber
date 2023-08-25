@@ -1,34 +1,24 @@
 package stepdefinition;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+import common.utils.BaseClass;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class GooglePageSearch {
+public class GooglePageSearch extends BaseClass {
 	
-	WebDriver driver;
 	WebElement srchBox;
 	
-	public void setUpBrowser() {
-		driver =  new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		
-	}
+	
 	
 	@Given("User is on Google Page")
 	public void user_is_on_google_page() {
@@ -45,7 +35,6 @@ public class GooglePageSearch {
 	public void should_display_java_result_page() {
 		System.out.println("Page title is----->"+driver.getTitle());
 		Assert.assertEquals(driver.getTitle(), "cypress tutorial - Google Search");
-		tearDown();
 	}
 	
 	@When("I search Selenium Tutorial")
@@ -58,11 +47,6 @@ public class GooglePageSearch {
 	public void should_display_selenium_result_page() {
 		System.out.println("Page title is----->"+driver.getTitle());
 		Assert.assertEquals(driver.getTitle(), "selenium tutorial - Google Search");
-		tearDown();
-	}
-	
-	public void tearDown() {
-		driver.quit();
 		
 	}
 	
@@ -72,8 +56,9 @@ public class GooglePageSearch {
 			TakesScreenshot takeScreenShot = (TakesScreenshot) driver;
 			byte[] screenShot = takeScreenShot.getScreenshotAs(OutputType.BYTES);
 			scenario.attach(screenShot, "image/png", "Screenshot");
-		}
-		
+		}}
 	}
-}
+	
+	
+	
  

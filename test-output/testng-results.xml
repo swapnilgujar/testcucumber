@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-08-25T04:57:25 GMT" name="Default suite" finished-at="2023-08-25T04:57:35 GMT" duration-ms="9360">
+  <suite started-at="2023-08-25T05:45:39 GMT" name="Default suite" finished-at="2023-08-25T05:45:54 GMT" duration-ms="14459">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@402c4085]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2023-08-25T04:57:25 GMT" name="Default test" finished-at="2023-08-25T04:57:35 GMT" duration-ms="9360">
+    <test started-at="2023-08-25T05:45:39 GMT" name="Default test" finished-at="2023-08-25T05:45:54 GMT" duration-ms="14459">
       <class name="runners.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runners.TestRunner@402c4085]" started-at="2023-08-25T04:57:25 GMT" name="setUpClass" finished-at="2023-08-25T04:57:27 GMT" duration-ms="1100" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runners.TestRunner@402c4085]" started-at="2023-08-25T05:45:39 GMT" name="setUpClass" finished-at="2023-08-25T05:45:40 GMT" duration-ms="1111" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@64c25a62]]>
+                <![CDATA[org.testng.TestRunner@6d0114c0]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@402c4085]" started-at="2023-08-25T04:57:27 GMT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-08-25T04:57:33 GMT" duration-ms="6555" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@402c4085]" started-at="2023-08-25T05:45:40 GMT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-08-25T05:45:47 GMT" duration-ms="6795" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -37,7 +37,40 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runners.TestRunner@402c4085]" started-at="2023-08-25T04:57:33 GMT" name="tearDownClass" finished-at="2023-08-25T04:57:35 GMT" duration-ms="1646" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@402c4085]" started-at="2023-08-25T05:45:47 GMT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-08-25T05:45:52 GMT" duration-ms="4880" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Valid login"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login Function"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [Welcome to the Secure Area. When you are done click logout below.] but found [This is where you can log into the secure area. Enter tomsmith for the username and SuperSecretPassword! for the password. If the information is wrong you should see error messages.]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [Welcome to the Secure Area. When you are done click logout below.] but found [This is where you can log into the secure area. Enter tomsmith for the username and SuperSecretPassword! for the password. If the information is wrong you should see error messages.]
+at org.testng.Assert.fail(Assert.java:110)
+at org.testng.Assert.failNotEquals(Assert.java:1577)
+at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+at org.testng.Assert.assertEquals(Assert.java:131)
+at org.testng.Assert.assertEquals(Assert.java:655)
+at org.testng.Assert.assertEquals(Assert.java:665)
+at stepdefinition.Login.homepage_is_displayed(Login.java:48)
+at ✽.Homepage is displayed(file:///C:/Users/Administrator/git/testcucumber/src/test/resources/features/login.feature:18)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runners.TestRunner@402c4085]" started-at="2023-08-25T05:45:52 GMT" name="tearDownClass" finished-at="2023-08-25T05:45:54 GMT" duration-ms="1606" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

@@ -1,29 +1,19 @@
 package stepdefinition;
 
-import static org.testng.Assert.assertTrue;
-
-import java.time.Duration;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
 
+import common.utils.BaseClass;
+import io.cucumber.java.After;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Login {
+public class Login  extends BaseClass{
 
-	WebDriver driver;
-
-	public void setUpBrowser() {
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-
-	}
 
 	@Given("User is on Login Page")
 	public void user_is_on_login_page() {
@@ -56,11 +46,15 @@ public class Login {
 //				.isDisplayed();
 //		assertTrue(welComesMessageIsDisplayed);
 	   Assert.assertEquals(welComeMessage, "Welcome to the Secure Area. When you are done click logout below.");
-		tearDown();
+		//tearDown();
 	}
 
-	public void tearDown() {
-		driver.quit();
-
+	@After
+	public void captureScreenShot(Scenario scenario) {
+		if(scenario.isFailed()) {
+			TakesScreenshot takeScreenShot = (TakesScreenshot) driver;
+			byte[] screenShot = takeScreenShot.getScreenshotAs(OutputType.BYTES);
+			scenario.attach(screenShot, "image/png", "");
+		}
 	}
 }
