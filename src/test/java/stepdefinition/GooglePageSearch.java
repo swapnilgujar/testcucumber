@@ -57,7 +57,7 @@ public class GooglePageSearch {
 	@Then("Should Display Selenium result page")
 	public void should_display_selenium_result_page() {
 		System.out.println("Page title is----->"+driver.getTitle());
-		Assert.assertEquals(driver.getTitle(), "selenium tutorial - Google");
+		Assert.assertEquals(driver.getTitle(), "selenium tutorial - Google Search");
 		tearDown();
 	}
 	
