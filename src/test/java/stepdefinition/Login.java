@@ -14,52 +14,53 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Login {
-	
+
 	WebDriver driver;
-	
+
 	public void setUpBrowser() {
-		driver =  new ChromeDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		
+
 	}
-	
+
 	@Given("User is on Login Page")
 	public void user_is_on_login_page() {
 		setUpBrowser();
 		driver.get("https://the-internet.herokuapp.com/login");
-		System.out.println("Page title is----->"+driver.getTitle());
+		System.out.println("Page title is----->" + driver.getTitle());
 		Assert.assertEquals(driver.getTitle(), "The Internet");
 	}
+
 	@When("User enters credentials")
 	public void user_etners_credentials() {
 		driver.findElement(By.id("username")).sendKeys("tomsmith");
 		driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
 		driver.findElement(By.xpath("//button[@class='radius']")).click();
 	}
+
 	
-	@When("User enters {string} and {string}")
-	public void user_enters_and(String stringUserName, String stringPassword) {
-		driver.findElement(By.id("username")).sendKeys(stringUserName);
-		driver.findElement(By.id("password")).sendKeys(stringPassword);
-		driver.findElement(By.xpath("//button[@class='radius']")).click();
-	}
-	
-	
-	
+	  @When("User enters {string} and {string}") public void user_enters_and(String
+	  stringUserName, String stringPassword) {
+	  driver.findElement(By.id("username")).sendKeys(stringUserName);
+	  driver.findElement(By.id("password")).sendKeys(stringPassword);
+	  driver.findElement(By.xpath("//button[@class='radius']")).click(); }
+	  
+	 
 	@Then("Homepage is displayed")
 	public void homepage_is_displayed() {
-//	   String welComeMessage = driver.findElement(By.xpath("//div//h4[@class='subheader']")).getText();
+	   String welComeMessage = driver.findElement(By.xpath("//div//h4[@class='subheader']")).getText();
 //	   System.err.println("Welcome message is----->"+welComeMessage);
-	   boolean welComesMessageIsDisplayed = driver.findElement(By.xpath("//div//h4[@class='subheader']")).isDisplayed();
-	   assertTrue(welComesMessageIsDisplayed);
-//	   Assert.assertEquals(welComeMessage, "Welcome to the Secure Area. When you are done click logout below.");
-	   tearDown();
+//		boolean welComesMessageIsDisplayed = driver.findElement(By.xpath("//div//h4[@class='subheader']"))
+//				.isDisplayed();
+//		assertTrue(welComesMessageIsDisplayed);
+	   Assert.assertEquals(welComeMessage, "Welcome to the Secure Area. When you are done click logout below.");
+		tearDown();
 	}
 
 	public void tearDown() {
 		driver.quit();
-		
+
 	}
 }
