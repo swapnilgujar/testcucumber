@@ -32,16 +32,26 @@ public class Login {
 		System.out.println("Page title is----->"+driver.getTitle());
 		Assert.assertEquals(driver.getTitle(), "The Internet");
 	}
-	@When("User etners credentials")
+	@When("User enters credentials")
 	public void user_etners_credentials() {
 		driver.findElement(By.id("username")).sendKeys("tomsmith");
 		driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
 		driver.findElement(By.xpath("//button[@class='radius']")).click();
 	}
+	
+	@When("User enters {string} and {string}")
+	public void user_enters_and(String stringUserName, String stringPassword) {
+		driver.findElement(By.id("username")).sendKeys(stringUserName);
+		driver.findElement(By.id("password")).sendKeys(stringPassword);
+		driver.findElement(By.xpath("//button[@class='radius']")).click();
+	}
+	
+	
+	
 	@Then("Homepage is displayed")
 	public void homepage_is_displayed() {
 //	   String welComeMessage = driver.findElement(By.xpath("//div//h4[@class='subheader']")).getText();
-//	   System.err.println("Welcom message is----->"+welComeMessage);
+//	   System.err.println("Welcome message is----->"+welComeMessage);
 	   boolean welComesMessageIsDisplayed = driver.findElement(By.xpath("//div//h4[@class='subheader']")).isDisplayed();
 	   assertTrue(welComesMessageIsDisplayed);
 //	   Assert.assertEquals(welComeMessage, "Welcome to the Secure Area. When you are done click logout below.");
