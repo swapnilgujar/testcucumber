@@ -5,8 +5,6 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import io.cucumber.java.Before;
-
 public class BaseClass {
 	
 	public  WebDriver driver;
