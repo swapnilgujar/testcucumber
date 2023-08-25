@@ -9,9 +9,11 @@ import io.cucumber.testng.CucumberOptions;
 		monochrome = true,
 		dryRun = true,
 //		tags = "@SmokeTest or @RegressionTest",
-		tags = "@SmokeTest and @RegressionTest",
+//		tags = "@SmokeTest and @RegressionTest",
 //		tags = "@SmokeTest",
 //		tags = "@RegressionTest",
+//		tags = "not @RegressionTest",
+		tags= "@PhaseTwo and @SmokeTest",
 		plugin = { /* "pretty", */
 				"html:target/reports/html/HtmlReport.html",
 				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
