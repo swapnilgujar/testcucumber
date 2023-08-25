@@ -8,7 +8,11 @@ import io.cucumber.testng.CucumberOptions;
 		glue = {"stepdefinition"},
 		monochrome = true,
 		dryRun = true,
-		plugin = {"pretty",
+//		tags = "@SmokeTest or @RegressionTest",
+		tags = "@SmokeTest and @RegressionTest",
+//		tags = "@SmokeTest",
+//		tags = "@RegressionTest",
+		plugin = { /* "pretty", */
 				"html:target/reports/html/HtmlReport.html",
 				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				"rerun:target/failedScenarios.txt"
@@ -20,5 +24,11 @@ import io.cucumber.testng.CucumberOptions;
 		)
 
 public class TestRunner extends AbstractTestNGCucumberTests {
+	
+	//for paraller execution
+	/*
+	 * @DataProvider(parallel= true) public Object[][]scenarios(){ return
+	 * super.scenarios(); }
+	 */
   
 }
