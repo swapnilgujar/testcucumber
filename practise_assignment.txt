@@ -1,0 +1,27 @@
+Implement in cucumber pom
+generate HTML report
+In case of failure attach screenshots in report
+should be able to execute selected scenarios
+Implement a framework with proper folder structure(done)
+
+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
+
+scenarios:add item to cart
+1.login into app
+2.add item to cart
+3.items must be added to cart
+
+scenario: delete an item
+1.login into app
+2.list of item should be available in cart
+3.delete item from cart
+
+scenario: place order
+1.login into app
+2.list of item should be available in cart
+3.place order
+4.Purchase Item
+
+
+
+
